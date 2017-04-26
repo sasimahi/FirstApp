@@ -24,6 +24,7 @@ import (
 )
 
 // SimpleChaincode example simple Chaincode implementation
+//myCode
 type SimpleChaincode struct {
 }
 
@@ -34,6 +35,8 @@ func main() {
 	err := shim.Start(new(SimpleChaincode))
 	if err != nil {
 		fmt.Printf("Error starting Simple chaincode: %s", err)
+		//our comment
+		fmt.Printf("Error we did")
 	}
 }
 
@@ -49,6 +52,8 @@ func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args [
 // Invoke is our entry point to invoke a chaincode function
 func (t *SimpleChaincode) Invoke(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 	fmt.Println("invoke is running " + function)
+	//our comment 
+	fmt.Printf("invoke we did")
 
 	// Handle different functions
 	if function == "init" {													//initialize the chaincode state, used as reset
@@ -62,6 +67,8 @@ func (t *SimpleChaincode) Invoke(stub *shim.ChaincodeStub, function string, args
 // Query is our entry point for queries
 func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 	fmt.Println("query is running " + function)
+	//our comment
+	fmt.Printf("query we did")
 
 	// Handle different functions
 	if function == "dummy_query" {											//read a variable
